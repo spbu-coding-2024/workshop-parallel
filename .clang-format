@@ -1,0 +1,5 @@
+BasedOnStyle: Google
+Language: C
+IndentWidth: 8
+TabWidth: 8
+UseTab: Always

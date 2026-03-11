@@ -1,0 +1,20 @@
+function(counter_pthread_example name)
+	add_executable("counter_${name}" "${CMAKE_CURRENT_SOURCE_DIR}/src/${name}.c")
+	target_link_libraries("counter_${name}" PRIVATE Threads::Threads)
+endfunction(counter_pthread_example)
+
+counter_pthread_example(no_sync)
+counter_pthread_example(no_sync_test)
+counter_pthread_example(mutex)
+counter_pthread_example(spinlock)
+counter_pthread_example(atomic)
+counter_pthread_example(mutex_opt)
+counter_pthread_example(atomic_opt)
+
+function(counter_omp_example name)
+	add_executable("counter_${name}" "${CMAKE_CURRENT_SOURCE_DIR}/src/${name}.c")
+	target_link_libraries("counter_${name}" PRIVATE OpenMP::OpenMP_C)
+endfunction(counter_omp_example)
+
+counter_omp_example(omp_no_sync)
+counter_omp_example(omp)
